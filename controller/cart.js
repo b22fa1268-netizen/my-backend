@@ -6,8 +6,7 @@ exports.getCart = async (req, res, next) => {
     const userId = req.user.id; // ✅ extracted from JWT token by authGuard
     const items = await CartModel.getCartItems(userId);
 
-    res.json({
-      success: true,
+    res.json({ success: true,
       user_id: userId,          // ✅ include user id
       total_items: items.length,
       data: items
